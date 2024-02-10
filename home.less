@@ -1,0 +1,908 @@
+//VARIABLES
+@main-light-cream: rgb(254, 252, 247);
+@accent-cyan-dark: rgb(14, 135, 132);
+@accent-cyan-light: rgb(102, 210, 207);
+@dark-blue: rgb(43, 51, 61);
+@light-orange: rgb(253, 214, 186);
+@white: rgb(255, 255, 255);
+@light-gray: rgb(226, 222, 219);
+@grey: rgb(131, 136, 143);
+
+@mobile-padding: 1.5rem;
+@tablet-padding: 2.5rem;
+@desktop-padding: 5.5rem;
+
+//MIXINS
+.serifFont-styles() {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+}
+
+.padding-sides-mobile() {
+  padding-left: @mobile-padding;
+  padding-right: @mobile-padding;
+}
+
+.padding-sides-tablet() {
+  padding-left: @tablet-padding;
+  padding-right: @tablet-padding;
+}
+
+.padding-sides-desktop() {
+  padding-left: @desktop-padding;
+  padding-right: @desktop-padding;
+}
+
+.columnFlex() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backgroundImgStyles() {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+//GENERAL STYLES
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  position: absolute;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: @accent-cyan-dark;
+  color: @white;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 0.4rem;
+  .serifFont-styles;
+  font-size: 1.15rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: @accent-cyan-light;
+}
+
+.primaryHeading,
+.secondaryHeading,
+.tertiaryHeading {
+  .serifFont-styles;
+}
+
+.secondaryHeading-gray {
+  color: @grey;
+}
+
+.item__box {
+  margin-top: 1.5rem;
+  color: @dark-blue;
+}
+
+.item__name {
+  .serifFont-styles;
+  font-size: 1.5rem;
+}
+
+.item__descr {
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+  max-width: 17rem;
+  line-height: 1.6;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Barlow", sans-serif;
+  background-color: @main-light-cream;
+  cursor: default;
+
+  &.menuOpen,
+  &.showSummary {
+    overflow: hidden;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  .padding-sides-mobile;
+  position: relative;
+
+  .nav {
+    position: absolute;
+    background: linear-gradient(#fefcf7 35%, rgba(254, 252, 247, 0.56));
+    width: 100%;
+    top: 4rem;
+    left: 0;
+    height: 100vh;
+    display: none;
+
+    &__list {
+      padding: 3rem 0;
+    }
+
+    &__link {
+      .serifFont-styles;
+      color: @dark-blue;
+      text-transform: capitalize;
+      font-size: 1.5rem;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: @dark-blue;
+      }
+    }
+  }
+
+  &__logo {
+    img {
+      width: 10.3rem;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    .columnFlex;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
+
+.main {
+  margin-top: 0.5rem;
+  .padding-sides-mobile;
+}
+
+.hero {
+  background: url("images/home/mobile/image-hero-coffeepress.jpg");
+  .backgroundImgStyles;
+  padding: 6.1rem 0;
+  .padding-sides-mobile;
+  border-radius: 0.75rem;
+
+  &__info {
+    .columnFlex;
+    gap: 1.5rem;
+    color: @main-light-cream;
+    text-align: center;
+
+    & .primaryHeading {
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+  }
+
+  &__text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    opacity: 0.8;
+  }
+
+  &__btn {
+    margin-top: 0.95rem;
+  }
+}
+
+.collection {
+  margin-top: 7.8rem;
+  &__list {
+    padding: 0;
+    padding-top: 1.8rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3.8rem;
+  }
+
+  &__item {
+    .columnFlex;
+    text-align: center;
+
+    & img {
+      width: 12rem;
+      padding-left: 1rem;
+    }
+  }
+
+  &__backgroundText {
+    text-align: center;
+    .serifFont-styles;
+    font-size: 2.57rem;
+    background: -webkit-linear-gradient(
+      hsla(213, 17%, 20%, 0.63) 0%,
+      @main-light-cream 82%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.features {
+  margin-top: 7.6rem;
+  padding: 3.5rem 0 41.3rem;
+  .padding-sides-mobile;
+  text-align: center;
+  background-color: @dark-blue;
+  border-radius: 0.5rem;
+  position: relative;
+
+  .secondaryHeading {
+    color: @white;
+    font-size: 1.8rem;
+  }
+
+  &__text {
+    margin-top: 1.1rem;
+    color: @light-gray;
+    font-size: 0.94rem;
+    line-height: 1.63;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: absolute;
+    top: 19rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__item {
+    width: 17.4rem;
+    .columnFlex;
+    justify-content: center;
+    background-color: @accent-cyan-dark;
+    border-radius: 0.5rem;
+    padding: 4.5rem 1.5rem 3.2rem;
+
+    & img {
+      width: 4.5rem;
+    }
+  }
+
+  & .item__box {
+    margin-top: 3.5rem;
+  }
+
+  & .item__name {
+    color: @white;
+  }
+
+  & .item__descr {
+    max-width: 13rem;
+    margin-top: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: @main-light-cream;
+    font-size: 0.95rem;
+  }
+}
+
+.explanation {
+  margin-top: 43.3rem;
+  text-align: center;
+
+  .secondaryHeading {
+    font-size: 1.54rem;
+  }
+
+  &__list {
+    margin-top: 3.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4.8rem;
+  }
+
+  .tertiaryHeading {
+    font-size: 1.78rem;
+    color: @dark-blue;
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 7.1rem;
+
+    &:after {
+      content: "01";
+      .serifFont-styles;
+      color: @light-orange;
+      font-size: 4.5rem;
+      position: absolute;
+      top: 0.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:nth-child(2)::after {
+      content: "02";
+    }
+
+    &:nth-child(3)::after {
+      content: "03";
+    }
+  }
+
+  &__info {
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+
+  &__descr {
+    margin-top: 1.15rem;
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: @dark-blue;
+  }
+
+  .btn {
+    display: inline-block;
+  }
+}
+
+.footer {
+  background-color: @dark-blue;
+  margin-top: 7.5rem;
+
+  &__container {
+    .columnFlex;
+    gap: 2.5rem;
+    padding: 3.4rem 0;
+  }
+
+  .nav__list {
+    gap: 1rem;
+  }
+
+  .nav__link {
+    text-transform: uppercase;
+    color: @grey;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: @white;
+    }
+  }
+
+  & path:first-of-type {
+    fill: @white;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0.13rem;
+    img {
+      width: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 48rem) {
+  .header {
+    padding: 2.3rem 0;
+    .padding-sides-tablet;
+
+    &__navBtn {
+      display: none;
+    }
+
+    .nav {
+      position: static;
+      background: transparent;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: flex-end;
+
+      &__list {
+        padding: 0;
+        flex-direction: row;
+        gap: 2rem;
+      }
+
+      &__link {
+        font-family: "Barlow", sans-serif;
+        color: @grey;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+      }
+    }
+
+    &__logo {
+      img {
+        width: 22rem;
+      }
+    }
+  }
+
+  .main {
+    margin-top: 0.9rem;
+    .padding-sides-tablet;
+  }
+
+  .hero {
+    background: url("images/home/tablet/image-hero-coffeepress\ \(1\).jpg");
+    padding: 6.4rem 3.5rem;
+    .backgroundImgStyles;
+
+    &__info {
+      align-items: flex-start;
+      text-align: left;
+      max-width: 26rem;
+
+      & .primaryHeading {
+        font-size: 3.15rem;
+      }
+    }
+  }
+
+  .collection {
+    margin-top: 7.4rem;
+
+    &__list {
+      padding: 0;
+      margin-top: -4.5rem;
+      gap: 3rem;
+    }
+
+    &__item {
+      flex-direction: row;
+      justify-content: center;
+      text-align: left;
+      gap: 3rem;
+
+      & img {
+        width: 15rem;
+      }
+    }
+
+    &__backgroundText {
+      font-size: 7.2rem;
+    }
+  }
+
+  .item__box {
+    margin-top: 0.9rem;
+    align-self: flex-start;
+  }
+
+  .item__descr {
+    margin-top: 1.5rem;
+  }
+
+  .features {
+    margin-top: 9.1rem;
+    padding: 3.6rem 0 23rem;
+    .padding-sides-tablet;
+
+    .secondaryHeading {
+      font-size: 2.05rem;
+    }
+
+    &__text {
+      max-width: 31rem;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+    }
+
+    &__list {
+      top: 17.1rem;
+      left: 8%;
+      right: 8%;
+      transform: translateX(0);
+      align-items: center;
+    }
+
+    &__item {
+      width: 36rem;
+      flex-direction: row;
+      justify-content: center;
+      padding: 2.8rem 3rem 2.5rem 4.5rem;
+      gap: 3.5rem;
+
+      & img {
+        width: 3.5rem;
+      }
+    }
+
+    & .item__box {
+      margin-top: 0;
+    }
+
+    & .item__name {
+      text-align: left;
+    }
+
+    & .item__descr {
+      max-width: none;
+      text-align: left;
+      margin-top: 0.8rem;
+      font-size: 0.93rem;
+    }
+  }
+
+  .explanation {
+    margin-top: 27rem;
+    text-align: left;
+
+    &__list {
+      margin-top: 2.2rem;
+      flex-direction: row;
+      gap: 1.5rem;
+      margin-bottom: 2.9rem;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        content: "";
+        display: block;
+        height: 3px;
+        width: 70%;
+        background-color: @light-orange;
+        z-index: -1;
+        max-width: 45rem;
+      }
+    }
+
+    .tertiaryHeading {
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    &__item {
+      padding-top: 12rem;
+
+      &:after {
+        top: 3.8rem;
+        left: 0;
+        transform: translateX(0);
+      }
+
+      .circle {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 2px solid @accent-cyan-dark;
+        background-color: @main-light-cream;
+      }
+    }
+
+    &__descr {
+      margin-top: 2.7rem;
+    }
+  }
+
+  .footer {
+    margin-top: 9rem;
+
+    &__container {
+      gap: 1.5rem;
+    }
+
+    .nav__list {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    &__socials {
+      margin-top: 2.2rem;
+    }
+  }
+}
+
+@media (min-width: 68rem) {
+  .header,
+  .main,
+  .footer__container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding: 2.3rem 0 2rem;
+
+    &__logo {
+      img {
+        width: 18rem;
+      }
+    }
+  }
+
+  .main {
+    margin-top: 0.6rem;
+    padding: 0;
+  }
+
+  .hero {
+    background: url("images/home/desktop/image-hero-coffeepress\ \(2\).jpg");
+    padding: 7.2rem 0;
+    .padding-sides-desktop;
+    .backgroundImgStyles;
+
+    &__info {
+      max-width: 31rem;
+
+      & .primaryHeading {
+        font-size: 4.8rem;
+        letter-spacing: 2px;
+      }
+    }
+
+    &__text {
+      font-size: 1.01rem;
+      max-width: 28rem;
+    }
+
+    &__btn {
+      margin-top: 1.9rem;
+    }
+  }
+
+  .collection {
+    margin-top: 6.8rem;
+
+    &__backgroundText {
+      font-size: 11rem;
+    }
+
+    &__list {
+      margin-top: -6rem;
+      flex-direction: row;
+      justify-content: center;
+      gap: 2.3rem;
+    }
+
+    &__item {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: 3.55rem;
+
+      & img {
+        width: 15rem;
+      }
+    }
+
+    .item__box {
+      max-width: 15.5rem;
+    }
+
+    .item__descr {
+      font-size: 1rem;
+    }
+  }
+
+  .features {
+    margin-top: 12.5rem;
+    padding: 6rem 0 23rem;
+
+    .secondaryHeading {
+      font-size: 2.58rem;
+    }
+
+    &__text {
+      max-width: 34rem;
+      font-size: 0.8rem;
+    }
+
+    &__list {
+      top: 22rem;
+      left: 6.7%;
+      right: 6.7%;
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    &__item {
+      flex-direction: column;
+      justify-content: center;
+      padding: 4.5rem 0 3rem 0;
+      gap: 3.5rem;
+
+      & img {
+        width: 4.5rem;
+      }
+
+      &:nth-child(3) {
+        align-self: stretch;
+      }
+    }
+
+    & .item__box {
+      margin-top: 0;
+      max-width: 15rem;
+      margin: 0 auto;
+    }
+
+    & .item__name {
+      text-align: center;
+    }
+
+    & .item__descr {
+      text-align: center;
+      margin-top: 1.4rem;
+      font-size: 0.97rem;
+    }
+  }
+
+  .explanation {
+    margin-top: 22rem;
+    padding-left: 5.1rem;
+
+    &__list {
+      margin-top: 4.7rem;
+      gap: 6.5rem;
+      margin-bottom: 3.5rem;
+
+      &::before {
+        width: 100%;
+        max-width: 48rem;
+      }
+    }
+
+    .tertiaryHeading {
+      font-size: 2.1rem;
+      max-width: 17rem;
+    }
+
+    &__item {
+      padding-top: 13rem;
+
+      &:after {
+        top: 5rem;
+      }
+    }
+
+    &__info {
+      max-width: 17.4rem;
+    }
+
+    &__descr {
+      font-size: 0.9rem;
+    }
+  }
+
+  .footer {
+    margin-top: 9rem;
+
+    &__container {
+      flex-direction: row;
+      gap: 7rem;
+    }
+
+    .nav__list {
+      gap: 2rem;
+    }
+
+    &__socials {
+      flex: 1;
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+
+    &__link path {
+      transition: fill 0.3s ease-in-out;
+    }
+
+    &__link:hover path {
+      fill: @light-orange;
+    }
+  }
+}

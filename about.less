@@ -1,0 +1,269 @@
+@import "home.less";
+
+// General styles
+.commitment,
+.headquarters {
+  margin-top: 7.5rem;
+}
+
+.commitment__info,
+.quality__info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.secondaryHeading {
+  font-size: 2.05rem;
+}
+
+.hero {
+  background: url("images/about/mobile/image-hero-whitecup\ \(1\).jpg");
+  .backgroundImgStyles;
+  padding-top: 7rem;
+  padding-bottom: 5.5rem;
+
+  .primaryHeading {
+    font-size: 1.8rem;
+  }
+}
+
+.commitment {
+  &__img {
+    width: 100%;
+    height: 25rem;
+    background: url("images/about/mobile/image-commitment\ \(1\).jpg");
+    border-radius: 0.5rem;
+    .backgroundImgStyles;
+  }
+
+  &__info {
+    margin-top: 3rem;
+  }
+
+  .secondaryHeading {
+    color: @dark-blue;
+  }
+
+  &__text {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+}
+
+.quality {
+  background-color: @dark-blue;
+  margin-top: 12.3rem;
+  border-radius: 0.5rem;
+  padding: 9rem 1.15rem 3.5rem;
+  position: relative;
+
+  &__img {
+    position: absolute;
+    width: 17.5rem;
+    height: 9.8rem;
+    border-radius: 0.5rem;
+    background: url("images/about/mobile/image-quality\ \(1\).jpg");
+    .backgroundImgStyles;
+    top: -4.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__info {
+    gap: 1.5rem;
+  }
+
+  .secondaryHeading {
+    color: @white;
+  }
+
+  &__text {
+    color: @light-gray;
+    opacity: 0.8;
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+}
+
+.headquarters {
+  text-align: center;
+  .secondaryHeading-gray {
+    font-size: 1.5rem;
+  }
+
+  &__list {
+    margin-top: 4.3rem;
+    .columnFlex;
+    gap: 5.3rem;
+  }
+
+  &__item {
+    .columnFlex;
+    gap: 1.65rem;
+  }
+
+  .item__name {
+    font-size: 1.75rem;
+  }
+
+  &__address {
+    margin-top: 1.15rem;
+    .columnFlex;
+    gap: 0.25rem;
+    font-style: normal;
+  }
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    background: url("images/about/tablet/image-hero-whitecup.jpg");
+    .backgroundImgStyles;
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+
+    .primaryHeading {
+      font-size: 2.05rem;
+    }
+
+    &__info {
+      gap: 1.8rem;
+    }
+  }
+
+  .commitment {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+
+    &__img {
+      width: 17.5rem;
+      height: 29.5rem;
+      background: url("images/about/tablet/image-commitment.jpg");
+      .backgroundImgStyles;
+    }
+
+    &__info {
+      margin-top: 0;
+      flex-basis: 50%;
+      text-align: left;
+    }
+  }
+
+  .quality {
+    margin-top: 18.5rem;
+    padding: 14.4rem 4rem 4rem;
+
+    &__img {
+      width: 35.7rem;
+      height: 20rem;
+      background: url("images/about/tablet/image-quality.jpg");
+      .backgroundImgStyles;
+      top: -9.5rem;
+    }
+
+    &__info {
+      gap: 1.5rem;
+    }
+  }
+
+  .headquarters {
+    margin-top: 9rem;
+    text-align: left;
+
+    &__list {
+      flex-direction: row;
+      gap: 3.8rem;
+    }
+
+    &__item {
+      align-items: flex-start;
+      gap: 2.2rem;
+    }
+    &__address {
+      align-items: flex-start;
+    }
+  }
+}
+
+@media (min-width: 68rem) {
+  .main {
+    margin-top: 1rem;
+  }
+
+  .hero {
+    background: url("images/about/desktop/image-hero-whitecup\ \(2\).jpg");
+    .backgroundImgStyles;
+    padding-top: 9rem;
+    padding-bottom: 8.5rem;
+
+    .primaryHeading {
+      font-size: 2.3rem;
+    }
+  }
+
+  .commitment {
+    margin-top: 10.5rem;
+    display: flex;
+    justify-content: space-between;
+    .padding-sides-desktop;
+    gap: 0;
+
+    &__img {
+      width: 28rem;
+      height: 32.5rem;
+      background: url("images/about/desktop/image-commitment\ \(2\).jpg");
+      .backgroundImgStyles;
+    }
+
+    &__info {
+      margin-top: -0.3rem;
+      flex-basis: 48%;
+      align-self: center;
+    }
+
+    &__text {
+      font-size: 0.99rem;
+    }
+  }
+
+  .quality {
+    margin-top: 15.5rem;
+    padding: 6rem 0 10rem;
+    .padding-sides-desktop;
+
+    &__img {
+      width: 28rem;
+      height: 29.5rem;
+      background: url("images/about/desktop/image-quality\ \(2\).jpg");
+      .backgroundImgStyles;
+      top: -5rem;
+      left: 76%;
+    }
+
+    &__info {
+      max-width: 27rem;
+      text-align: left;
+    }
+
+    &__text {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .headquarters {
+    margin-top: 10.2em;
+    .padding-sides-desktop;
+
+    &__list {
+      gap: 12.5rem;
+    }
+
+    &__item {
+      align-items: flex-start;
+      gap: 2.5rem;
+    }
+  }
+}
