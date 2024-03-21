@@ -8,19 +8,20 @@
   </head>
   <body>
     <header class="header">
-      <a href="#" class="header__logo">
+      <div href="#" class="header__logo">
         <img src="images/logo.svg" alt="" />
-      </a>
+      </div>
       <button
         class="header__navBtn"
         type="button"
         aria-haspopup="true"
         aria-expanded="false"
+        aria-label="menu button"
       >
         <img src="images/icon-hamburger.svg" alt="" />
       </button>
       <nav class="nav header__nav">
-        <ul class="nav__list" role="menu">
+        <ul class="nav__list" role="menubar">
           <li class="nav__item">
             <a href="home.html" class="nav__link" role="menuitem">home</a>
           </li>
@@ -37,6 +38,21 @@
     </header>
     <main class="main">
       <section class="hero">
+        <img
+          class="hero__img"
+          src="/images/home/mobile/image-hero-coffeepress.jpg"
+          alt=""
+        />
+        <img
+          class="hero__img"
+          src="/images/home/tablet/image-hero-coffeepress.jpg"
+          alt=""
+        />
+        <img
+          class="hero__img"
+          src="/images/home/desktop/image-hero-coffeepress.jpg"
+          alt=""
+        />
         <div class="hero__info">
           <h1 class="primaryHeading">Great coffee made simple.</h1>
           <p class="hero__text">
@@ -215,7 +231,7 @@
           </g>
         </svg>
         <nav class="nav footer__nav">
-          <ul class="nav__list">
+          <ul class="nav__list" role="menubar">
             <li class="nav__item">
               <a href="home.html" class="nav__link" role="menuitem">home</a>
             </li>
@@ -233,7 +249,7 @@
         </nav>
         <ul class="footer__socials">
           <li class="footer__item">
-            <a href="#" class="footer__link">
+            <a href="#" class="footer__link" aria-label="link to Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
                   fill="#FEFCF7"
@@ -243,7 +259,7 @@
             </a>
           </li>
           <li class="footer__item">
-            <a href="#" class="footer__link">
+            <a href="#" class="footer__link" aria-label="link to Twitter">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20">
                 <path
                   fill="#FEFCF7"
@@ -253,7 +269,7 @@
             </a>
           </li>
           <li class="footer__item">
-            <a href="#" class="footer__link">
+            <a href="#" class="footer__link" aria-label="link to Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
                   fill="#FEFCF7"
