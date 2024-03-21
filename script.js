@@ -15,6 +15,9 @@ $(document).ready(function () {
 
   //NAVIGATION
   $(".header__navBtn").on("click", function () {
+    $(this).attr("aria-expanded") == "false"
+      ? $(this).attr("aria-expanded", true)
+      : $(this).attr("aria-expanded", false);
     $(document.body).toggleClass("menuOpen");
     $(".header__nav").fadeToggle();
   });
