@@ -13,6 +13,12 @@ $(document).ready(function () {
 
   let finalPrice = undefined;
 
+  //NAVIGATION
+  $(".header__navBtn").on("click", function () {
+    $(document.body).toggleClass("menuOpen");
+    $(".header__nav").fadeToggle();
+  });
+
   //SHOW OPTIONS
   $(".plan__box button").on("click", function () {
     const $planBoxEl = $(this).parent();
