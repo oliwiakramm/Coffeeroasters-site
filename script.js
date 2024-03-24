@@ -101,6 +101,12 @@ $(document).ready(function () {
     $(document.body).addClass("showSummary");
   });
 
+  //LEAVING MODAL
+  $(window).on("click", function () {
+    if (!$(document.body).hasClass("showSummary")) return;
+    $(document.body).removeClass("showSummary");
+  });
+
   //OPTIONS NAV FUNCTIONALITY
   $(".plan__item").on("click", function () {
     const navData = $(this).attr("data-item");
